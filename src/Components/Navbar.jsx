@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll'; // Using Link from react-scroll
 import { FaBars } from "react-icons/fa";
-
+import { Link } from 'react-router-dom';
+import { FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu toggle state
+  const [isOpen, setIsOpen] = useState(false); 
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle menu visibility
+    setIsOpen(!isOpen); 
   };
 
   const closeMenu = () => {
-    setIsOpen(false); // Close the mobile menu when an item is clicked
+    setIsOpen(false); 
   };
 
   return (
     <div>
-      {/* Main Navbar container */}
-      <div className="fixed left-0 top-0 h-[60px] w-full bg-[black] flex justify-between items-center px-5 z-50">
+      {/* Navbar */}
+      <div className="fixed top-0 left-0 w-full h-[60px] bg-black flex justify-between items-center px-5 z-50">
         {/* Logo */}
         <div className="text-white flex flex-row gap-[10px]">
-          <p className="text-[30px] font-bold">
-            <span className="text-[orangered]">Sireesha</span> reddy
-          </p>
+          <p className="text-[30px] font-bold">Blogs</p>
         </div>
 
         {/* Hamburger Icon for Mobile */}
@@ -31,37 +29,31 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex gap-[30px] items-center">
-          <li className={`text-white font-bold text-[15px] cursor-pointer`}>
-            <Link to="home" smooth={true} duration={500}>Home</Link>  {/* Scroll to Home section */}
+          <li className="text-white font-bold text-[15px] cursor-pointer">
+            <Link to="/Create">Create</Link>
           </li>
-          <li className={`text-white font-bold text-[15px] cursor-pointer`}>
-            <Link to="about" smooth={true} duration={500}>About</Link>  {/* Scroll to About section */}
+          <li className="text-white font-bold text-[15px] cursor-pointer">
+            <Link to="/Contact">Contact</Link>
           </li>
-          <li className={`text-white font-bold text-[15px] cursor-pointer`}>
-            <Link to="contact" smooth={true} duration={500}>Contact</Link>  {/* Scroll to Contact section */}
-          </li>
-          <li className={`text-white font-bold text-[15px] cursor-pointer`}>
-            <Link to="project" smooth={true} duration={500}>Project</Link>  {/* Scroll to Project section */}
-          </li>
+          <li><FaUserCircle className="text-white text-[20px]"/></li>
         </ul>
       </div>
 
       {/* Mobile Menu (Slide-in sidebar) */}
       <div className={`md:hidden fixed top-0 left-0 h-full w-[250px] bg-black z-40 transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <ul className="flex flex-col items-center space-y-[20px] py-5">
+        <ul className="flex flex-col items-center space-y-[20px] mt-[50px] py-5">
           <li className="text-white list-none cursor-pointer">
-            <Link to="home" smooth={true} duration={500} onClick={closeMenu}>Home</Link>  {/* Close menu after click */}
+            <Link to="/Create" onClick={closeMenu}>Create</Link>
           </li>
           <li className="text-white list-none cursor-pointer">
-            <Link to="about" smooth={true} duration={500} onClick={closeMenu}>About</Link>
-          </li>
-          <li className="text-white list-none cursor-pointer">
-            <Link to="contact" smooth={true} duration={500} onClick={closeMenu}>Contact</Link>
-          </li>
-          <li className="text-white list-none cursor-pointer">
-            <Link to="project" smooth={true} duration={500} onClick={closeMenu}>Project</Link>
+            <Link to="/Contact" onClick={closeMenu}>Contact</Link>
           </li>
         </ul>
+      </div>
+
+      {/* Content below the Navbar */}
+      <div className="pt-[60px]"> {/* Add padding-top equal to the height of the navbar */}
+        {/* Your page content will go here */}
       </div>
     </div>
   );
