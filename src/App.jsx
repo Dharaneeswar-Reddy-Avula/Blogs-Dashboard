@@ -1,7 +1,10 @@
 import React from 'react'
-
+import Register from './Components/Register'
 export const App = () => {
   return (
-    <div className='text-center'>Hi</div>
+    <>
+      <Register />
+    </>
   )
 }
+export default App
