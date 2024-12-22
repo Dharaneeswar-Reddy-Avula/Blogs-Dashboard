@@ -1,6 +1,6 @@
 import React from 'react';
-import { IoMdPerson } from "react-icons/io";  // Correct for IoMdPerson
-import { MdEmail } from "react-icons/md";      // Correct for MdEmail
+import { IoMdPerson } from "react-icons/io";  
+import { MdEmail } from "react-icons/md";      
 import { FaLock } from "react-icons/fa";   
 
 const Register = () => {
